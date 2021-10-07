@@ -1,5 +1,5 @@
 !function(){
-	var Donut3D={};
+	var Pie3D={};
 
 	function pieTop(d, rx, ry, ir ){
 		if(d.endAngle - d.startAngle == 0 ) return "M 0 0";
@@ -47,7 +47,7 @@
 				Math.round(1000*(d.endAngle-d.startAngle)/(Math.PI*2))/10+'%' : '');
 	}
 
-	Donut3D.transition = function(id, data, rx, ry, h, ir){
+	Pie3D.transition = function(id, data, rx, ry, h, ir){
 		function arcTweenInner(a) {
 		  var i = d3.interpolate(this._current, a);
 		  this._current = i(0);
@@ -89,7 +89,7 @@
 			.attrTween("x",textTweenX).attrTween("y",textTweenY).text(getPercent);
 	}
 
-	Donut3D.draw=function(id, data, x /*center x*/, y/*center y*/,
+	Pie3D.draw=function(id, data, x /*center x*/, y/*center y*/,
 			rx/*radius x*/, ry/*radius y*/, h/*height*/, ir/*inner radius*/){
 
 		var _data = d3.pie().sort(null).value(function(d) {return d.value;})(data);
@@ -120,5 +120,5 @@
 			.text(getPercent).each(function(d){this._current=d;});
 	}
 
-	this.Donut3D = Donut3D;
+	this.Pie3D = Pie3D;
 }();

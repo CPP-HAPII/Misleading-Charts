@@ -37,10 +37,10 @@
     </div>
 
     <script>
-    
+
         var svg = d3.select("div").append("svg").attr("width",700).attr("height",500);
 
-        svg.append("g").attr("id","salesDonut");
+        svg.append("g").attr("id","pie");
 
         d3.csv("3d-pie-chart-data.csv")
             .row(function(d) { return {label:d.label, value:d.value, color:d.color}; })
@@ -50,7 +50,7 @@
         });
 
         function drawData() {
-            Donut3D.draw("salesDonut", loadedData, 200/* center x */, 150/* center y */, 130 /* radius x */, 100 /* radius y */, 70 /* height */, 0 /* inner radius */);
+            Pie3D.draw("pie", loadedData, 200/* center x */, 150/* center y */, 130 /* radius x */, 100 /* radius y */, 70 /* height */, 0 /* inner radius */);
         }
     </script>
 </body>
