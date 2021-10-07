@@ -13,7 +13,7 @@
 <br>
 
 ## Line Charts
-### ❗  Multiple Scale Line Chart | Different Y-axes for two lines on the same chart <br>
+### 💡  Multiple Scale Line Chart | Different Y-axes for two lines on the same chart <br>
 
 <br>
 
