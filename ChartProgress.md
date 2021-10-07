@@ -19,5 +19,4 @@
 
 ## Pie Charts
 ### ✔️ 2D Pie Chart | Sum of percentages does not equal 100% <br>
-### 💡 3D Pie Chart | Angle and size makes certain sections look larger than it actually is <br>
-- Reads data from external file now, just need to clean up the code
+### ✔️ 3D Pie Chart | Angle and size makes certain sections look larger than it actually is <br>
