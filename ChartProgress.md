@@ -8,7 +8,7 @@
 
 ## Bar Charts
 ### ✔️ Truncated Bar Chart | Y-axis starts from a non-zero number <br>
-### 💡  Reversed Axis Bar Chart | X- or Y-axis labeling is reversed <br>
+### ✔️ Reversed Axis Bar Chart | X- or Y-axis labeling is reversed <br>
 
 <br>
 
