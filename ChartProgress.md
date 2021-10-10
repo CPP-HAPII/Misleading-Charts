@@ -14,7 +14,7 @@
 
 ## Line Charts
 ### ✔️ Multiple Scale Line Chart | Different Y-axes for two lines on the same chart <br>
-
+### 💡  Truncated Line Chart | Y-axis starts from a non-zero number <br>
 <br>
 
 ## Pie Charts
