@@ -8,16 +8,15 @@
 
 ## Bar Charts
 ### ✔️ Truncated Bar Chart | Y-axis starts from a non-zero number <br>
-### 💡  Reversed Axis Bar Chart | X- or Y-axis labeling is reversed <br>
+### ✔️ Reversed Axis Bar Chart | X- or Y-axis labeling is reversed <br>
 
 <br>
 
 ## Line Charts
-### ❗  Multiple Scale Line Chart | Different Y-axes for two lines on the same chart <br>
-
+### ✔️ Multiple Scale Line Chart | Different Y-axes for two lines on the same chart <br>
+### ✔️ Truncated Line Chart | Y-axis starts from a non-zero number <br>
 <br>
 
 ## Pie Charts
 ### ✔️ 2D Pie Chart | Sum of percentages does not equal 100% <br>
-### 💡 3D Pie Chart | Angle and size makes certain sections look larger than it actually is <br>
-- Reads data from external file now, just need to clean up the code
+### ✔️ 3D Pie Chart | Angle and size makes certain sections look larger than it actually is <br>
