@@ -14,15 +14,17 @@
 
     </style>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <title>Misleading Pie Chart</title>
+    <title>Misleading 2D Pie Chart</title>
 </head>
 <body>
     <br>
-    <h1>% of respondents with a favorable opinion of each brand</h1>
+    <h1>COVID-19 Deaths in California each day in January 2021</h1>
     <br>
-    <svg width="500" height="400"></svg>
 
-    <a href="https://www.tutorialsteacher.com/d3js/create-pie-chart-using-d3js">Creating a pie chart with D3JS</a>
+    <div>
+        <svg width="600" height="700"></svg>
+    </div>
+
     <script>
 
         // define variables
@@ -34,11 +36,24 @@
         var g = svg.append("g")
                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-        var color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
+        // set date format depending on CSV data
+        var	parseDate = d3.timeParse("%m/%d/%Y");
+
+        // color generating function
+        function generateColors(d) {
+          const colors = [];
+          for (let i = 0; i < d; i++) {
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            hex = "#" + randomColor;
+            colors.push(hex);
+          }
+          var color = d3.scaleOrdinal(colors);
+          return color;
+        }
 
         // generate the pie, setting percentages as pie value
         var pie = d3.pie().value(function(d) {
-                return d.percentage;
+                return d.Deaths;
             });
 
         // define arc for each pie wedge
@@ -52,10 +67,20 @@
                       .innerRadius(radius - 150);
 
         // load data
-        d3.csv("2d-pie-chart-data.csv", function(error, data) {
+        d3.csv("CA-Covid-Deaths-Jan21.csv", function(error, data) {
             if (error) {
                 throw error;
             }
+
+            // generate colors
+            var allColors = generateColors(data.length);
+
+            // format data
+            data.forEach(function(d) {
+                d.Date = parseDate(d.Date);
+                d.Deaths = +d.Deaths;
+            });
+
             var arcs = g.selectAll(".arc")
                        .data(pie(data))
                        .enter().append("g")
@@ -64,14 +89,28 @@
             // create group elements for each of the data values in the dataset
             arcs.append("path")
                .attr("d", arc)
-               .attr("fill", function(d) { return color(d.data.brand); });
+               .attr("fill", function(d) { return allColors(d.data.Date); });
 
-            // add generated arcs to create paths for each pie wedge
-            arcs.append("text")
-               .attr("transform", function(d) {
-                        return "translate(" + label.centroid(d) + ")";
-                })
-               .text(function(d) { return d.data.brand + " " + d.data.percentage + "%"; });
+            // create legend
+            var legend = d3.select("div").append("svg")
+                           .attr("class", "legend")
+                           .attr("width", 500)
+                           .attr("height", 700)
+                           .selectAll("g")
+                           .data(data)
+                           .enter().append("g")
+                           .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+            legend.append("rect")
+                  .attr("width", 18)
+                  .attr("height", 18)
+                  .style("fill", function(d, i) { return allColors(i) });
+
+            legend.append("text")
+                    .attr("x", 24)
+                    .attr("y", 9)
+                    .attr("dy", ".35em")
+                    .text(function(d) { return d.Date.toString().substring(4,10) + " - " + d.Deaths; });
             });
 
     </script>
