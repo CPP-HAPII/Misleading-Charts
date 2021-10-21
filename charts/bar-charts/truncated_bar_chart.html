@@ -19,7 +19,8 @@
 </head>
 
 <body>
-	
+
+<h1>CA COVID Deaths in January 2021</h1>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 
 <script>
@@ -38,7 +39,7 @@ var y = d3.scale.linear().range([height, 0]);
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-    .tickFormat(d3.time.format("%Y-%m"));
+    .tickFormat(d3.time.format("%d"));
 
 var yAxis = d3.svg.axis()
     .scale(y)
@@ -52,7 +53,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("CA-Covid-Deaths-Jan21.csv", function(error, data) {
+d3.csv("CA-Covid-Deaths.csv", function(error, data) {
 
     data.forEach(function(d) {
         d.date = parseDate(d.date);
@@ -62,7 +63,7 @@ d3.csv("CA-Covid-Deaths-Jan21.csv", function(error, data) {
   x.domain(data.map(function(d) { return d.date; }));
 
   // first param is the y-axis starting point
-  y.domain([200, d3.max(data, function(d) { return d.deaths; })]);
+  y.domain([100, d3.max(data, function(d) { return d.deaths; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -82,7 +83,7 @@ d3.csv("CA-Covid-Deaths-Jan21.csv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Value ($)");
+      .text("Deaths");
 
   svg.selectAll("bar")
       .data(data)
