@@ -21,7 +21,7 @@
 <body>
 
 <h1>Daily New Confirmed COVID Cases in the US</h1>
-<p>October 2020 - September 2021</p>
+<p>January 7, 2021 - January 27, 2021</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 
 <script>
@@ -39,8 +39,8 @@ var y = d3.scale.linear().range([height, 0]);
 
 var xAxis = d3.svg.axis()
     .scale(x)
-    .orient("bottom");
-    //.tickFormat(d3.time.format("%d"));
+    .orient("bottom")
+    .tickFormat(d3.time.format("%d"));
 
 var yAxis = d3.svg.axis()
     .scale(y)
@@ -57,15 +57,14 @@ var svg = d3.select("body").append("svg")
 d3.csv("US-Confirmed-COVID-Cases-By-Month.csv", function(error, data) {
 
     data.forEach(function(d) {
-        // d.date = parseDate(d.date);
-        d.Month = d.Month
+        d.Date = parseDate(d.Date);
         d.Cases = +d.Cases;
     });
 	
-  x.domain(data.map(function(d) { return d.Month; }));
+  x.domain(data.map(function(d) { return d.Date; }));
 
   // first param is the y-axis starting point
-  y.domain([11000, d3.max(data, function(d) { return d.Cases; })]);
+  y.domain([218, d3.max(data, function(d) { return d.Cases; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -85,13 +84,13 @@ d3.csv("US-Confirmed-COVID-Cases-By-Month.csv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Confirmed COVID Cases");
+      .text("New Cases (thousands)");
 
   svg.selectAll("bar")
       .data(data)
     .enter().append("rect")
       .style("fill", "steelblue")
-      .attr("x", function(d) { return x(d.Month); })
+      .attr("x", function(d) { return x(d.Date); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.Cases); })
       .attr("height", function(d) { return height - y(d.Cases); });

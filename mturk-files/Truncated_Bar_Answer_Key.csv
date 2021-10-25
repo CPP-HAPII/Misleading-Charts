@@ -1,9 +1,4 @@
 ﻿question_text,answers
-Which day had the highest number of COVID-19 related deaths?,22-Jan
-Which day had the lowest number of COVID-19 related deaths?,4-Jan
-Between which 2 consecutive days was there the largest increase in COVID-19 related deaths?,January 19 - 20
-Between which 2 consecutive days was there the largest decrease in COVID-19 related deaths?,January 16 - 17
-Were there any days where there were virtually no COVID deaths?,No
-"Between January 2 and January 3, about what percentage did the number of COVID-19 related deaths drop?",50%
-Between which consecutive days did the number of COVID-19 related deaths double?,January 11 - 12
-Between which consecutive days did the number of COVID-19 related deaths reduce by half?,"January 2 - 3, January 10 - 11, January 17 - 18 "
+Were there any months where there were virtually no new COVID cases?,No
+True or false - Between January 7th and January 8th, the number of new cases more than doubled., False
+True or false - On January 16th, the number of new cases was about half that of the day before., False
