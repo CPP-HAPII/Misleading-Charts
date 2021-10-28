@@ -12,7 +12,7 @@
   </style>
   <body>
     <script>
-      const margin = { top: 20, right: 40, bottom: 50, left: 50 },
+      const margin = { top: 20, right: 40, bottom: 50, left: 70 },
         width = 1100 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -24,13 +24,13 @@
       const valueline = d3
         .line()
         .defined(function(d) {
-          return d.value > 50;
+          return d.cumulative_ca_vaccinations>10000000;
         })
         .x(function (d) {
           return x(d.date);
         })
         .y(function (d) {
-          return y(d.value);
+          return y(d.cumulative_ca_vaccinations);
         });
 
       const svg = d3
@@ -41,12 +41,12 @@
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      d3.csv("truncated-line-chart-data.csv", function (error, data) {
+      d3.csv("COVID-19_Vaccination_CA_2021.csv", function (error, data) {
         if (error) throw error;
 
         data.forEach(function (d) {
           d.date = parseTime(d.date);
-          d.value = +d.value;
+          d.cumulative_ca_vaccinations = +d.cumulative_ca_vaccinations;
         });
 
         x.domain(
@@ -55,24 +55,17 @@
           })
         );
         y.domain([
-          50,
+          10000000,
           d3.max(data, function (d) {
-            return d.value;
+            return d.cumulative_ca_vaccinations;
           }),
         ]);
-
-        // svg.append("clip-path")
-        //   .attr("id", "clip")
-        //   .append("rect")
-        //   .attr("width", )
-        //   .attr("height", );
 
         svg
           .append("path")
           .data([data])
           .attr("class", "line")
           .attr("d", valueline);
-          //.attr("clip-path", "url(#clip");
 
         svg
           .append("g")
@@ -81,7 +74,7 @@
             d3
               .axisBottom(x)
               .tickFormat(d3.timeFormat("%b %d"))
-              .ticks(d3.timeDay.every(1))
+              .ticks(d3.timeMonth.every(1))
           )
           .selectAll("text")
           .style("text-anchor", "end")
