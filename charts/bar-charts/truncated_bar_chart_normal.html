@@ -11,10 +11,10 @@
 </head>
 
 <body>
-<h1>Daily New Confirmed COVID Cases in the US</h1>
-<p>January 7, 2021 - January 27, 2021</p>
-<svg width="600" height="500"></svg>
-<script>
+	<h1>Daily New Confirmed COVID Cases in the US</h1>
+	<p>January 7, 2021 - January 27, 2021</p>
+	<svg width="600" height="500"></svg>
+	<script>
 		const svg = d3.select("svg"),
 			margin = 200,
 			width = svg.attr("width") - margin,
@@ -33,7 +33,7 @@
 			}
 
 			xScale.domain(data.map(function (d) { return d.Date; }));
-			yScale.domain([218, d3.max(data, function (d) { return d.Cases; }), ]);
+			yScale.domain([0, d3.max(data, function (d) { return d.Cases; }), ]);
 
 			g.append("g")
 			 .attr("transform", "translate(0," + height + ")")
