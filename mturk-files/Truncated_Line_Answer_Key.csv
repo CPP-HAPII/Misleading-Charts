@@ -1,6 +1,11 @@
 question_text, answers
-True or False - No one was vaccinated in January, False
-True or False - No one was vaccinated in February, False
-True or False - People were vaccinated in January, True
-True or False - People were vaccinated in February, True
-True or False - People began getting vaccinated in March, False
+True or False - No vaccines had been administered at the beginning of January, False
+True or False - Around 600000 total vaccines had been administered at the beginning of January, True
+True or False - No vaccines had been administered at the beginning of February, False
+True or False - Around 4500000 total vaccines had been administered at the beginning of February, True
+True or False - Vaccines were administered in January, True
+True or False - Vaccines were administered in February, True
+True or False - Vaccines began getting administered in March (according to the chart), False
+True or False - Vaccines had been administered before March (according to the chart), True
+True or False - The total number of vaccines administered at the beginning of March was around 0, False 
+True or False - The total number of vaccines administered at the beginning of March was around 100000, True
