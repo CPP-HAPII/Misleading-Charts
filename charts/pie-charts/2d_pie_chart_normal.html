@@ -43,11 +43,6 @@
         // color generating function
         function generateColors(d) {
           const colors = ["#488f31", "#4c9c85", "#78b19f", "#a0c6b9", "#c8dbd5", "#f1f1f1", "#f1cfce", "#eeadad", "#e88b8d", "#df676e"];
-          /*for (let i = 0; i < d; i++) {
-            const randomColor = Math.floor(Math.random()*16777215).toString(16);
-            hex = "#" + randomColor;
-            colors.push(hex);
-          }*/
           var color = d3.scaleOrdinal(colors);
           return color;
         }
@@ -68,7 +63,7 @@
                       .innerRadius(radius - 150);
 
         // load data
-        d3.csv("US-Vaccination-Percentage-By-Month-2021.csv", function(error, data) {
+        d3.csv("US-Vaccination-By-Month-2021.csv", function(error, data) {
             if (error) {
                 throw error;
             }
@@ -78,7 +73,6 @@
 
             // format data
             data.forEach(function(d) {
-                // d.Date = parseDate(d.Date);
                 d.Month = d.Month;
                 d.Percentage = +d.Percentage;
             });
@@ -116,14 +110,11 @@
                   .attr("height", 18)
                   .style("fill", function(d, i) { return allColors(i) });
 
-
             legend.append("text")
                     .attr("x", 24)
                     .attr("y", 9)
                     .attr("dy", ".35em")
-                    .text(function(d) { return d.Month + " - " + d.Percentage + "%"; });
-
-
+                    .text(function(d) { return d.Month + " - " + d.Percentage + " million"; });
             });
 
 
