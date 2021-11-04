@@ -9,20 +9,16 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
   </head>
   <body>
-    <svg width="600" height="500"></svg>
+    <br />
+    <h1>COVID-Related Deaths in California</h1>
+    <p>January 1, 2021 - January 31, 2021</p>
+    <br />
+    <svg width="1500" height="500"></svg>
     <script>
       const svg = d3.select("svg"),
         margin = 200,
         width = svg.attr("width") - margin,
         height = svg.attr("height") - margin;
-
-      svg
-        .append("text")
-        .attr("transform", "translate(100,0)")
-        .attr("x", 50)
-        .attr("y", 50)
-        .attr("font-size", "24px")
-        .text("Reversed Axis Bar Chart");
 
       const xScale = d3.scaleBand().range([width, 0]).padding(0.4),
         yScale = d3.scaleLinear().range([height, 0]);
@@ -31,45 +27,51 @@
         .append("g")
         .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
-      d3.csv("reversed-axis-bar-chart-data.csv", function (error, data) {
+      d3.csv("CA-COVID-Deaths.csv", function (error, data) {
         if (error) {
           throw error;
         }
 
+        data.forEach(function (d) {
+          d.deaths = +d.deaths;
+        });
+
         xScale.domain(
           data.map(function (d) {
-            return d.year;
+            return d.date;
           })
         );
         yScale.domain([
           0,
           d3.max(data, function (d) {
-            return d.value;
+            return d.deaths;
           }),
         ]);
 
         g.append("g")
-         .attr("transform", "translate(0," + height + ")")
-         .call(d3.axisBottom(xScale))
-         .append("text")
-         .attr("y", height - 270)
-         .attr("x", width)
-         .attr("text-anchor", "end")
-         .attr("stroke", "black")
-         .text("Year");
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(xScale))
+          .append("text")
+          .attr("y", height - 270)
+          .attr("x", width)
+          .attr("text-anchor", "end")
+          .attr("stroke", "black");
 
         g.append("g")
-         .call(d3.axisLeft(yScale).tickFormat(function(d){
-             return "$" + d;
-         })
-         .ticks(10))
-         .append("text")
-         .attr("transform", "rotate(-90)")
-         .attr("y", 6)
-         .attr("dy", "-5.1em")
-         .attr("text-anchor", "end")
-         .attr("stroke", "black")
-         .text("Price");
+          .call(
+            d3
+              .axisLeft(yScale)
+              .tickFormat(function (d) {
+                return d;
+              })
+              .ticks(10)
+          )
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", "-5.1em")
+          .attr("text-anchor", "end")
+          .attr("stroke", "black");
 
         g.selectAll(".bar")
           .data(data)
@@ -77,14 +79,14 @@
           .append("rect")
           .attr("class", "bar")
           .attr("x", function (d) {
-            return xScale(d.year);
+            return xScale(d.date);
           })
           .attr("y", function (d) {
-            return yScale(d.value);
+            return yScale(d.deaths);
           })
           .attr("width", xScale.bandwidth())
           .attr("height", function (d) {
-            return height - yScale(d.value);
+            return height - yScale(d.deaths);
           });
       });
     </script>
