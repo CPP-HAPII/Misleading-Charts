@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 2px;
+      }
+    </style>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <body>
+    <br />
+    <h1>Number of People in California Hospitalized from COVID</h1>
+    <p style="color:steelblue">April 2020</p>
+    <p>vs</p>
+    <p style="color:red">April 2021</p>
+    <br />
+
+    <script>
+      const margin = { top: 20, right: 40, bottom: 30, left: 50 },
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+      const parseTime = d3.timeParse("%d-%b");
+
+      const x = d3.scaleTime().range([0, width]);
+      const y = d3.scaleLinear().range([height, 0]);
+
+      const valueline = d3
+        .line()
+        .x(function (d) {
+          return x(d.date);
+        })
+        .y(function (d) {
+          return y(d.hospitalized_2020);
+        });
+
+      const valueline2 = d3
+        .line()
+        .x(function (d) {
+          return x(d.date);
+        })
+        .y(function (d) {
+          return y(d.hospitalized_2021);
+        });
+
+      const svg = d3
+        .select("body")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.csv("covid19hospitalizedca.csv", function (error, data) {
+        if (error) throw error;
+
+        data.forEach(function (d) {
+          d.date = parseTime(d.date);
+          d.hospitalized_2020 = +d.hospitalized_2020;
+          d.hospitalized_2021 = +d.hospitalized_2021;
+        });
+
+        x.domain(
+          d3.extent(data, function (d) {
+            return d.date;
+          })
+        );
+        y.domain([
+          0,
+          d3.max(data, function (d) {
+            return Math.max(d.hospitalized_2020, d.hospitalized_2021);
+          }),
+        ]);
+
+        svg
+          .append("path")
+          .data([data])
+          .attr("class", "line")
+          .attr("d", valueline);
+
+        svg
+          .append("path")
+          .data([data])
+          .attr("class", "line")
+          .style("stroke", "red")
+          .attr("d", valueline2);
+
+        svg
+          .append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
+
+        svg.append("g").attr("class", "yAxis").call(d3.axisLeft(y));
+      });
+    </script>
+  </body>
+</html>
