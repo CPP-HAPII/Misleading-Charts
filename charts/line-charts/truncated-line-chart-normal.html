@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <style>
+    .line {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 2px;
+    }
+  </style>
+  <body>
+    <br>
+    <h1>Total Number of COVID Vaccines Administered in California</h1>
+    <p>January 2021 - October 2021</p>
+    <br>
+    <script>
+      const margin = { top: 20, right: 40, bottom: 50, left: 70 },
+        width = 1100 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+      const parseTime = d3.timeParse("%d-%b-%y");
+
+      const x = d3.scaleTime().range([0, width]);
+      const y = d3.scaleLinear().range([height, 0]);
+
+      const valueline = d3
+        .line()
+        .defined(function(d) {
+          return d.cumulative_ca_vaccinations;
+        })
+        .x(function (d) {
+          return x(d.date);
+        })
+        .y(function (d) {
+          return y(d.cumulative_ca_vaccinations);
+        });
+
+      const svg = d3
+        .select("body")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.csv("COVID-19_Vaccination_CA_2021.csv", function (error, data) {
+        if (error) throw error;
+
+        data.forEach(function (d) {
+          d.date = parseTime(d.date);
+          d.cumulative_ca_vaccinations = +d.cumulative_ca_vaccinations;
+        });
+
+        x.domain(
+          d3.extent(data, function (d) {
+            return d.date;
+          })
+        );
+        y.domain([
+          0,
+          d3.max(data, function (d) {
+            return d.cumulative_ca_vaccinations;
+          }),
+        ]);
+
+        svg
+          .append("path")
+          .data([data])
+          .attr("class", "line")
+          .attr("d", valueline);
+
+        svg
+          .append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(
+            d3
+              .axisBottom(x)
+              .tickFormat(d3.timeFormat("%b %d"))
+              .ticks(d3.timeMonth.every(1))
+          )
+          .selectAll("text")
+          .style("text-anchor", "end")
+          .attr("dx", "-.8em")
+          .attr("dy", "-.55em")
+          .attr("transform", "rotate(-90)");
+
+        svg.append("g").attr("class", "axisSteelBlue").call(d3.axisLeft(y));
+      });
+    </script>
+  </body>
+</html>
