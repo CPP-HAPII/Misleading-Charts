@@ -13,14 +13,11 @@
   <body>
     <br />
     <h1>Number of People in California Hospitalized from COVID</h1>
-    <p style="color:steelblue">April 2020</p>
-    <p>vs</p>
-    <p style="color:red">April 2021</p>
     <br />
 
     <script>
-      const margin = { top: 20, right: 40, bottom: 30, left: 50 },
-        width = 960 - margin.left - margin.right,
+      const margin = { top: 20, right: 60, bottom: 40, left: 60 },
+        width = 1000 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
       const parseTime = d3.timeParse("%d-%b");
@@ -100,14 +97,41 @@
           .attr("transform", "translate(0," + height + ")")
           .call(d3.axisBottom(x));
 
+        svg.append("text")             
+          .attr("transform",
+                "translate(" + (width/2) + " ," + 
+                              (height + margin.top + 20) + ")")
+          .attr("dy", "-0.25em")
+          .style("text-anchor", "middle")
+          .text("Date");
+
         svg.append("g").attr("class", "axisSteelBlue").call(d3.axisLeft(y0));
+
+        // note: rotating text also rotates entire coordinate system
+        svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 0 - margin.left)
+          .attr("x", 0 - (height / 2))
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .style("fill", "steelblue")
+          .text("April 2020");
 
         svg
           .append("g")
           .attr("class", "axisRed")
           .attr("transform", "translate( " + width + ", 0 )")
           .call(d3.axisRight(y1));
-      });
+        
+        svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", width + margin.right)
+          .attr("x", 0 - (height / 2))
+          .attr("dy", "-0.5em")
+          .style("text-anchor", "middle")
+          .style("fill", "red")
+          .text("April 2021");
+          });
     </script>
   </body>
 </html>
