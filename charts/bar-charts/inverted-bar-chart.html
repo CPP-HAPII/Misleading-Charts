@@ -14,8 +14,8 @@
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script>
     // set the dimensions and margins of the graph
-    var margin = { top: 40, right: 20, bottom: 30, left: 60 },
-      width = 1300 - margin.left - margin.right,
+    var margin = { top: 20, right: 20, bottom: 40, left: 60 },
+      width = 1400 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
     // set the ranges
@@ -71,11 +71,17 @@
         });
 
       // add the x Axis
-      svg.append("g").call(d3.axisTop(x));
+      svg
+        .append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
       // add the x Axis label
       svg
         .append("text")
-        .attr("transform", "translate(" + width / 2 + " ," + -40 + ")")
+        .attr(
+          "transform",
+          "translate(" + width / 2 + " ," + (height + margin.top) + ")"
+        )
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("Date");
