@@ -1,11 +1,11 @@
-question_text, answers
-True or False - The day with the lowest number of COVID-related deaths in California in January was near the end of the month, False
-True or False - The day with the lowest number of COVID-related deaths in California in January was near the beginning of the month, True
-True or False - The day with the highest number of COVID-related deaths in California in January was in the first half of the month, False
-True or False - The day with the highest number of COVID-related deaths in California in January was in the second half of the month, True
-True or False - There were more COVID-related deaths in California in the first half of the month than the second half, False
-True or False - There were more COVID-related deaths in California in the second half of the month than the first half, True
-True or False - There were less COVID-related deaths in California in the first half of the month than the second half, True
-True or False - There were less COVID-related deaths in California in the second half of the month than the first half, False
-True or False - The number of COVID-related deaths in California in January were trending upwards overall as time passed, True
-True or False - The number of COVID-related deaths in California in January were trending downwards overall as time passed, False
+question_text, answer
+True or False - The day with the lowest number of COVID-related deaths in California in January was near the end of the month., FALSE
+True or False - The day with the lowest number of COVID-related deaths in California in January was near the beginning of the month., TRUE
+True or False - The day with the highest number of COVID-related deaths in California in January was in the first half of the month., FALSE
+True or False - The day with the highest number of COVID-related deaths in California in January was in the second half of the month., TRUE
+True or False - There were more COVID-related deaths in California in the first half of the month than the second half., FALSE
+True or False - There were more COVID-related deaths in California in the second half of the month than the first half., TRUE
+True or False - There were less COVID-related deaths in California in the first half of the month than the second half., TRUE
+True or False - There were less COVID-related deaths in California in the second half of the month than the first half., FALSE
+True or False - The number of COVID-related deaths in California in January were trending upwards overall as time passed., TRUE
+True or False - The number of COVID-related deaths in California in January were trending downwards overall as time passed., FALSE

@@ -1,0 +1,11 @@
+question_text, answer
+True or False - The day in January 2021 with the greatest number of deaths was January 4., FALSE
+True or False - The day in January 2021 with the least number of deaths was January 4., TRUE
+True or False - The day in January 2021 with the greatest number of deaths was January 22., TRUE
+True or False - The day in January 2021 with the least number of deaths was January 22., FALSE
+True or False - January 4 had more deaths than January 22., FALSE
+True or False - January 4 had less deaths than January 22., TRUE
+True or False - From January 4 through January 7, the number of deaths increased., TRUE
+True or False - From January 4 through January 7, the number of deaths decreased., FALSE
+True or False - From January 22 through January 25, the number of deaths increased., FALSE
+True or False - From January 22 through January 25, the number of deaths decreased., TRUE
