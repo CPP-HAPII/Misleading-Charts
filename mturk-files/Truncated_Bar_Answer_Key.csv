@@ -1,11 +1,11 @@
 question_text, answer
-True or False - According to the chart, there was a day (or days) where there were virtually no new COVID cases., FALSE
-True or False - Between January 7th and January 8th, the number of new cases more than doubled., FALSE
-True or False - On January 16th, the number of new cases was about half that of the day before., FALSE
-True or False - On January 17th, the number of new cases decreased by more than half that of the day before., FALSE
-True or False - From January 7 to January 17, the number of new cases generally declined., TRUE
-True or False - On January 12, there were about 250 new cases., FALSE
-True or False - Between January 9 and January 10, there were less than 5 new COVID cases., FALSE
-True or False - On January 9, there were about 245,000 new COVID cases., TRUE
-True or False - Between January 13th and January 14th, the number of new COVID cases declined by about 5,000., TRUE
-True or False - Between January 7th and January 17th, the highest daily count of new COVID cases surpassed 250,000., TRUE
+"True or False - According to the chart, there was a day (or days) where there were virtually no new COVID cases.", FALSE
+"True or False - Between January 7th and January 8th, the number of new cases more than doubled.", FALSE
+"True or False - On January 16th, the number of new cases was about half that of the day before.", FALSE
+"True or False - On January 17th, the number of new cases decreased by more than half that of the day before.", FALSE
+"True or False - From January 7 to January 17, the number of new cases generally declined.", TRUE
+"True or False - On January 12, there were about 250 new cases.", FALSE
+"True or False - Between January 9 and January 10, there were less than 5 new COVID cases.", FALSE
+"True or False - On January 9, there were about 245,000 new COVID cases.", TRUE
+"True or False - Between January 13th and January 14th, the number of new COVID cases declined by about 5,000.", TRUE
+"True or False - Between January 7th and January 17th, the highest daily count of new COVID cases surpassed 250,000.", TRUE

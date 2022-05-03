@@ -1,11 +1,11 @@
 question_text, answer
-True or False - No vaccines had been administered at the beginning of January., FALSE
-True or False - Around 600000 total vaccines had been administered at the beginning of January., TRUE
-True or False - No vaccines had been administered at the beginning of February., FALSE
-True or False - Around 4500000 total vaccines had been administered at the beginning of February., TRUE
-True or False - Vaccines were administered in January., TRUE
-True or False - Vaccines were administered in February., TRUE
-True or False - Vaccines began getting administered in March (according to the chart)., FALSE
-True or False - Vaccines had been administered before March (according to the chart)., TRUE
-True or False - The total number of vaccines administered at the beginning of March was around 0., FALSE 
-True or False - The total number of vaccines administered at the beginning of March was around 100000., TRUE
+"True or False - No vaccines had been administered at the beginning of January.", FALSE
+"True or False - Around 600000 total vaccines had been administered at the beginning of January.", TRUE
+"True or False - No vaccines had been administered at the beginning of February.", FALSE
+"True or False - Around 4500000 total vaccines had been administered at the beginning of February.", TRUE
+"True or False - Vaccines were administered in January.", TRUE
+"True or False - Vaccines were administered in February.", TRUE
+"True or False - Vaccines began getting administered in March (according to the chart).", FALSE
+"True or False - Vaccines had been administered before March (according to the chart).", TRUE
+"True or False - The total number of vaccines administered at the beginning of March was around 0.", FALSE 
+"True or False - The total number of vaccines administered at the beginning of March was around 100000.", TRUE
