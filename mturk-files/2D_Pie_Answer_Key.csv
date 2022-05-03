@@ -1,0 +1,11 @@
+question_text,answer
+"True or False - By April, about a quarter of the U.S. population was fully vaccinated.", TRUE
+"True or False - By April, less than a quarter of the U.S. population was fully vaccinated.", FALSE
+"True or False - By August, about half of the U.S. population was fully vaccinated.", TRUE
+"True or False - By August, less than half of the U.S. population was fully vaccinated.", FALSE
+"True or False - A greater percentage of the U.S. population became fully vaccinated in October than in May.", FALSE
+"True or False - A greater percentage of the U.S. population became fully vaccinated in May than in October.", TRUE
+"True or False - A smaller percentage of the U.S. population became fully vaccinated in September than in April.", TRUE
+"True or False - A smaller percentage of the U.S. population became fully vaccinated in April than in September.", FALSE
+"True or False - From August to October, about half of the U.S. population became fully vaccinated.", FALSE
+"True or False - From August to October, less than 10 percent of the U.S. population became fully vaccinated.", TRUE
