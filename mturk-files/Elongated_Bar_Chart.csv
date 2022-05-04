@@ -1,0 +1,11 @@
+question_text, answer
+"True or False - Between January 13th and January 14th, the number of new COVID cases declined by about 5,000.", TRUE
+"True or False - New COVID cases on January 17th is about 231,000.", TRUE
+"True or False - New COVID cases decreased by about 15,000 from January 12th to January 13th.", FALSE
+"True or False - The date with the highest record of new COVID cases is January 11th.", TRUE
+"True or False - The date with the lowest record of new COVID cases is January 17th.", TRUE
+"True or False - January 8th had more COVID cases than January 11th.", FALSE
+"True or False - January 11th had more COVID cases than January 13th.", TRUE
+"True or False - Between January 7th and January 8th, the amount of new COVID cases increased by about 5,000.", FALSE
+"True or False - Between January 8th and January 9th, the amount of new COVID cases declined by about 5,000.", TRUE
+"True or False - New COVID cases on January 15th is about 210,000.", FALSE
